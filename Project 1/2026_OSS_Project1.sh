@@ -45,7 +45,7 @@ do
 		echo ""
 		echo "Top 5 tracks by popularity in \"$genre\":"
 
- 		sed '1d' "$1" | tr -d '\r' |	awk -F '\t' -v gen="$genre" '$20 == gen { 
+ 		sed '1d' "$1" | tr -d '\r' |	\awk -F '\t' -v gen="$genre" '$20 == gen { 
 			printf "%s\t%s\t%s\t%s\t%s\n", $2, $4, $5, $9, $17 }' | \
 			sort -t $'\t' -k 3 -nr | head -n 5
 		echo ""
